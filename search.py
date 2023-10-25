@@ -3,19 +3,27 @@
 import ap
 
 arr = [True, False]
+DEPTH = 5
 
-def dfs(lines: list, m: int, depth: int):
-    if depth == m:
+
+def dfs(ans: list, depth: int, result: list):
+    if depth == DEPTH:
+        result.append(ans[:])
         return
     else:
         for d in arr:
-            # ans[depth] = d
-            ap.pop_line_dir(lines, d)
-            dfs(ans, m, depth+1)
+            ans[depth] = d
+            dfs(ans, depth+1, result)
 
-for i in range(1, 2):
-    m = i
-    ans = [0] * m
-    # lines = ap.
-    dfs(ans, m, 0)
-    print()
+
+if __name__ == "__main__":
+    all_results = []
+    ans = [0] * DEPTH
+    dfs(ans, 0, all_results)
+    
+    
+    
+    # for result in all_results:
+    #     for direction in result:
+            
+        # print()

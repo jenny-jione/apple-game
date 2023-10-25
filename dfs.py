@@ -2,17 +2,28 @@
 
 arr = [True, False]
 
-def dfs(ans: list, m: int, depth: int):
+def dfs(ans: list, m: int, depth: int, result: list):
     if depth == m:
         print(ans)
+        result.append(ans[:])
         return ans
     else:
         for d in arr:
             ans[depth] = d
-            dfs(ans, m, depth+1)
+            dfs(ans, m, depth+1, result)
 
-for i in range(1, 4):
-    m = i
+
+if __name__ == "__main__":
+
+    result = []
+
+    # for i in range(1, 4):
+    #     m = i
+    #     ans = [0] * m
+    #     dfs(ans, m, 0, result)
+    
+    # print(result)
+    
+    m = 5
     ans = [0] * m
-    dfs(ans, m, 0)
-    print()
+    dfs(ans, m, 0, result)
